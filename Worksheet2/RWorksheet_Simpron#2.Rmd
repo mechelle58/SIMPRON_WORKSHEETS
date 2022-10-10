@@ -1,0 +1,110 @@
+---
+title: "Rworksheet_Simpron#2"
+author: "Mechelle T. Simpron"
+date: "2022-10-10"
+output: pdf_document
+---
+##RMarkdown
+
+``` {r vector1A}
+M <- seq(-5:5)
+M
+```
+
+``` {r vector1B}
+x <- 1:7
+x
+```
+
+``` {r vector2}
+BB <- seq(1, 3, by = 0.2)
+BB
+```
+
+``` {r vector3A}
+workers_age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+                 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
+                 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
+                 18)
+workers_age
+```
+
+``` {r vector3A.2}
+workers_age[3]
+
+```
+
+``` {r vector3B}
+workers_age[2]
+
+workers_age[4]
+```
+
+``` {r vector3C}
+workers_age[2:49]
+```
+
+``` {r vector4}
+x <- c("first"=3, "second"=3, "third"=9)
+names(x)
+```
+
+``` {r vector5A}
+x <- -3:2
+x
+```
+
+``` {r vector5B}
+x[2] <- 0
+x
+```
+
+``` {r vector6}
+month <- c("Jan", "Feb", "Mar", "Apr", "May", "June")
+month
+price_per_liter <- c(52.50, 57.25, 60.00, 65.00, 74.25, 54.00)
+price_per_liter
+purchase_quantity <- c(25, 30, 40, 50, 10, 45)
+purchase_quantity
+```
+
+``` {r vector6A}
+frame <- data.frame(month, price_per_liter, purchase_quantity)
+frame
+```
+
+``` {r vector6B}
+weighted.mean(price_per_liter, purchase_quantity)
+```
+
+``` {r vector7}
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers),
+          sd(rivers), min(rivers), max(rivers))
+data
+```
+
+``` {r vector8A}
+power_ranking <- c(1:25)
+celebrity_name <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg",
+                "Howard Stern", "50 Cent", "Cast  of the sopranos", "Dan Brown", "Bruce Springsteen",
+                "Donal Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John",
+                "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson",
+                "Dr. Phil McGrow", "J Lenon", "Celine Dion",
+                "Kobe Bryant")
+celebrity_name
+
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+pay
+```
+
+``` {r vector8B}
+data_ranking <- data.frame(power_ranking, celebrity_name, pay)
+data_ranking
+```
+
+``` {r vector8C}
+power_ranking [19] <- 15
+power_ranking
+pay [19] <- 90
+pay
+```
