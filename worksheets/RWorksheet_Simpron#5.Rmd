@@ -1,0 +1,121 @@
+---
+title: "Worksheet5"
+author: "SIMPRON MECHELLE"
+date: "2022-11-25"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r 1A}
+
+library(ggplot2)
+df <- data.frame("course"=c("1st", "2nd", "3rd", "4th"), "sy"= c(80, 75, 70, 60))
+ggplot(df) + geom_col(aes(course, sy))
+
+sy <- c(80, 75, 70, 60)
+course <- c("1st", "2nd", "3rd", "4th")
+```
+
+```{r 1B}
+pl <- barplot(sy, main= "Enrollment of BS Computer Science",
+              xlab = "Curriculum Year", ylab = "number of
+              students")
+```
+```{r 2A}
+food <- 60
+electricity <- 10
+savings <- 5
+misc <- 25
+
+exp <- data.frame(food, electricity, savings,misc)
+exp
+```
+
+```{r 2B}
+expn <- c(60, 10, 5, 25)
+pie(expn, main = "Expenses", col = rainbow(length(expn)),
+    labels = c("food", "electricity", "savings", "misc"))
+
+expn_label <- round(expn/sum(expn) * 100, 1)
+expn_label <- paste(expn_label, "%", sep = "")
+
+pie(expn, main = "Expenses", col = rainbow(length(expn)),
+    labels = expn_label, cex=0.8)
+legend(1, c("food", "electricity", "savings", "misc"),
+       cex = 0.8, fill = rainbow(length(expn)))
+```
+
+```{r 3A}
+data("mtcars")
+
+carss  <- mtcars$mpg
+
+hist(carss, main = "Histogram for mpg")
+```
+
+```{r 3B}
+hist(carss, breaks=12, col="red")
+```
+
+```{r 3C}
+lms<-hist(carss, breaks=10, col="red", xlab="Miles Per Gallon",
+        main="Histogram with Normal Curve")
+xfit<-seq(min(carss),max(carss),length=40)
+yfit<-dnorm(xfit,mean=mean(carss),sd=sd(carss))
+yfit <- yfit*diff(lms$mids[1:2])*length(carss)
+lines(xfit, yfit, col="blue", lwd=2)
+```
+
+```{r 3D}
+data("iris")
+
+data_i <- data.frame(iris)
+data_i
+
+s_data <- subset(data_i, Species == 'setosa')
+s_data
+
+data_s <- data.frame(iris)
+data_s
+
+v_data <- subset(data_s, Species == 'versicolor')
+v_data
+
+data_is <- data.frame(iris)
+data_is
+
+vg_data <-subset(data_is, Species == 'virginica')
+vg_data
+```
+
+```{r 4B}
+setosa <- colMeans(s_data[sapply(s_data,is.numeric)])
+setosa
+
+versicolor <- colMeans(v_data[sapply(v_data,is.numeric)])
+versicolor
+
+virginica <- colMeans(vg_data[sapply(vg_data,is.numeric)])
+virginica
+```
+
+```{r 4C}
+svv <- rbind(setosa, versicolor, virginica)
+svv
+```
+
+```{r 4D}
+barplot(svv, beside =TRUE, main = "Iris Mean",
+        xlab = "Characterisics", ylab = "Mean Scores",
+        col = c("red", "green", "blue"))
+
+```
